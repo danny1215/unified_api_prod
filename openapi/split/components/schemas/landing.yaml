@@ -128,16 +128,3 @@ example:
   total_gear_in_water: '1'
   fishing_hours: '3'
   hours_days_flag: H
-  bft_sale_nature: D
-  bft_color: B
-  bft_shape: C
-  bft_fat: A
-  bft_freshness: A
-  bft_tag_prefix: 3
-  bft_tag_nbr: 48322
-  bft_length: 27
-  bft_area_code: 3
-  bft_destination_code: X
-  bft_measure_type: 2
-  hms_fins_attached: U
-  hms_explanation": we're not sure what happened to fins
