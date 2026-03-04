@@ -1,0 +1,20 @@
+post:
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/neg_trips.yaml
+    required: true
+  tags:
+    - eTrips
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/neg_trips_response.yaml
+      description: output of the endpoint
+  security:
+    - Confidential-API: []
+  summary: 'neg_trips_upload '
+  description: send a set of negative / no fishing trip reports to safis.

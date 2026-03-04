@@ -1,0 +1,78 @@
+openapi: 3.0.2
+info:
+  title: Unified SAFIS API -Prod
+  version: 1.0.70
+  description: >-
+    **Overview**
+
+
+    This API is used by remote applications   to communicate with the SAFIS
+    backend database server. It is not intended for any other purpose. This
+    document is intended as a programmer’s reference manual. It is used by both
+    application developers who build a front-end, and the programmers who
+    maintain this   API back-end. 
+
+
+    To request an API key, please contact us. 
+  contact:
+    email: support@accsp.org
+  x-logo:
+    url: >-
+      https://raw.githubusercontent.com/accsp-software/spec-unified-api-prod/master/docs/accsp_logo.jpg
+servers:
+  - url: https://safis.accsp.org/safis_prod/safis_prod/api
+    description: ''
+tags:
+  - name: eTrips
+    description: eTrips
+  - name: eDR
+    description: eDR
+paths:
+  /user_permits:
+    $ref: paths/user_permits.yaml
+  /trips_download:
+    $ref: paths/trips_download.yaml
+  /lookup_list_date_changed:
+    $ref: paths/lookup_list_date_changed.yaml
+  /neg_reports_upload:
+    $ref: paths/neg_reports_upload.yaml
+  /neg_reports_upload_errors:
+    $ref: paths/neg_reports_upload_errors.yaml
+  /neg_trips_upload_errors:
+    $ref: paths/neg_trips_upload_errors.yaml
+  /notification_upload:
+    $ref: paths/notification_upload.yaml
+  /participants:
+    $ref: paths/participants.yaml
+  /permit_compliance:
+    $ref: paths/permit_compliance.yaml
+  /permit_endorsements:
+    $ref: paths/permit_endorsements.yaml
+  /reports_upload:
+    $ref: paths/reports_upload.yaml
+  /reports_upload_errors:
+    $ref: paths/reports_upload_errors.yaml
+  /trips_upload_errors:
+    $ref: paths/trips_upload_errors.yaml
+  /lookup_list_by_attribute:
+    $ref: paths/lookup_list_by_attribute.yaml
+  /neg_trips_upload:
+    $ref: paths/neg_trips_upload.yaml
+  /neg_trips_not_processed:
+    $ref: paths/neg_trips_not_processed.yaml
+  /trips_upload:
+    $ref: paths/trips_upload.yaml
+  /trip_locations:
+    $ref: paths/trip_locations.yaml
+  /lookup_list:
+    $ref: paths/lookup_list.yaml
+components:
+  securitySchemes:
+    Confidential-API:
+      scheme: basic
+      type: http
+      description: username@apikey:password
+    Non-Confidential:
+      scheme: basic
+      type: http
+      description: '@apikey'
