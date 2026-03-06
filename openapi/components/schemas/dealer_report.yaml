@@ -128,3 +128,5 @@ example:
       total_gear_in_water: '1'
       fishing_hours: '3'
       hours_days_flag: H
+      hms_fins_attached: 'N'
+      hms_explanation: fins...did anyone see the fins?

@@ -108,17 +108,10 @@ openapi.yaml:
     - >-
       #/components/schemas/vessels_on_license_response/example/row/1/permits/1/agency
     - '#/components/schemas/landing/example/species_itis'
-    - '#/components/schemas/landing/example/bft_tag_prefix'
-    - '#/components/schemas/landing/example/bft_tag_nbr'
-    - '#/components/schemas/landing/example/bft_length'
-    - '#/components/schemas/landing/example/bft_area_code'
-    - '#/components/schemas/landing/example/bft_measure_type'
-    - '#/components/schemas/landing/example/bft_sale_nature'
     - '#/components/schemas/landing/example/hms_explanation"'
     - '#/components/schemas/dealer_report/example/landing_date'
     - '#/components/schemas/dealer_report/example/date_of_pur'
     - '#/components/schemas/dealer_report/example/landings/0/species_itis'
-    - '#/components/schemas/dealer_report/example/landings/0/bft_sale_nature'''
     - '#/components/schemas/dealer_report/example/report_update'
     - '#/components/schemas/dealer_report/example/accsp_report_id'
     - '#/components/schemas/dealer_report/example/explanation_late'
