@@ -4126,231 +4126,6 @@ components:
             in_use: 'Y'
         status: OK
         description: 3 Attribute(s) Returned.
-    dealer_report:
-      title: Root Type for dealer_report
-      description: ''
-      required:
-        - state_reg_nbr
-        - coast_guard_nbr
-        - landings
-        - date_of_pur
-        - cf_partner_id
-        - cf_license_nbr
-        - landing_date
-        - port
-        - supplier_dr_id
-      type: object
-      properties:
-        state_reg_nbr:
-          description: State Registration number of vessel. If no vessel used, provide 'FROM_SHORE'. Required to provide either coast_guard_nbr or state_reg_nbr.
-          type: string
-        coast_guard_nbr:
-          description: coast guard number of a vessel. If no vessel used, provide 'FROM_SHORE'. Required to provide either coast_guard_nbr or state_reg_nbr.
-          type: string
-        landing_date:
-          format: date
-          description: Landing Date of report. Format MM/DD/YYYY
-          type: string
-        time_landed:
-          type: string
-        date_of_pur:
-          format: date
-          description: Purchase date. Format MM/DD/YYYY
-          type: string
-        dea_license_nbr:
-          description: Permit/License Number of Dealer in use
-          type: string
-        dea_partner_id:
-          description: 4 character identifier of issuing agency of dealer permit in use
-          type: string
-        supplier_dr_id:
-          description: unique report id given by the caller. Only used to communicate errors and updates.
-          type: string
-        cf_license_nbr:
-          description: Permit/License Number of fisherman purchased from.
-          type: string
-        cf_partner_id:
-          description: 4 character identifier of issuing agency of fisherman permit in use
-          type: string
-        vtr_number:
-          description: vessel tracking report number when a NMFS-NE registed vessel is in use.
-          type: string
-        submit_method:
-          type: string
-        port:
-          description: Landing Port of Vessel
-          type: string
-        trip_start_date:
-          description: Calendar date of beginning of fishing trip. Format MM/DD/YYYY
-          type: string
-        trip_start_time:
-          description: time taken of fishing trip. Format HHMM
-          type: string
-        applicationversion:
-          description: application version
-          type: string
-        shark_fishery:
-          description: is this a shark fishery?
-          type: string
-        observer_log_id:
-          description: observed log id
-          type: string
-        vtr_explanation:
-          description: explanation of the vtr
-          type: string
-        landings:
-          description: Collection of landings in this dealer report.
-          type: array
-          items:
-            $ref: '#/components/schemas/landing'
-      example:
-        report_update: 'Y'
-        accsp_report_id: '3145324'
-        coast_guard_nbr: ''
-        state_reg_nbr: VA12345
-        landing_date: 09/15/2018
-        time_landed: '1618'
-        date_of_pur: 09/15/2018
-        dea_license_nbr: '1234'
-        dea_partner_id: '0016'
-        supplier_dr_id: 1234-2K1-U-54321
-        cf_license_nbr: '2468'
-        cf_partner_id: '0003'
-        vtr_number: '23452120091826'
-        submit_method: D
-        port: '240513'
-        trip_start_date: 01/31/2017
-        trip_start_time: '2218'
-        applicationversion: 1.0.0
-        shark_fishery: 'Y'
-        observer_log_id: bat654
-        vtr_explanation: vtr, what vtr update?
-        explanation_late: why was report submitted late?
-        explanation_modified: why was this report modified?
-        date_submitted: 12/01/2024
-        platform: PCTT
-        user_submission_handle: any_file_name_123.txt
-        landings:
-          - supplier_landing_id: '0123456789_456789_123456:0'
-            species_itis: 1245
-            disposition_code: '012'
-            grade_code: '01'
-            unit_measure: LB
-            reported_quantity: '430'
-            price: '.41'
-            market_code: UN
-            area_fished: '514'
-            sub_area_fished: '0057'
-            local_area_code: CCB42
-            hms_area_code: BF56B
-            catch_source: S
-            temp_unit: F
-            gear_code: '620'
-            gear_quantity: '1'
-            in_state: MA
-            total_gear_in_water: '1'
-            fishing_hours: '3'
-            hours_days_flag: H
-            hms_fins_attached: 'N'
-            hms_explanation: fins...did anyone see the fins?
-    landing:
-      title: Root Type for landing
-      description: ''
-      required:
-        - disposition_code
-        - market_code
-        - reported_quantity
-        - species_itis
-        - unit_measure
-      type: object
-      properties:
-        supplier_landing_id:
-          description: unique identifier for landing supplied by sender.
-          type: string
-        species_itis:
-          description: ITIS code of the fish caught
-          type: string
-        disposition_code:
-          description: the final disposition of the catch made
-          type: string
-        gear_code:
-          description: gear used to catch the landing
-          type: string
-        grade_code:
-          description: Grade of catch
-          type: string
-        unit_measure:
-          description: Code for unit of measure used to reference the reported_quantity field
-          type: string
-        reported_quantity:
-          description: numeric quantity of fish caught. Always used in conjunction with unit_of_measure field.
-          type: string
-        price:
-          description: US Dollar price of landing per specified unit
-          type: string
-        market_code:
-          description: Market code of catch
-          type: string
-        area_fished:
-          description: 3 character area-code for effort location
-          type: string
-        sub_area_fished:
-          description: 4 character area-code for effort location
-          type: string
-        local_area_code:
-          description: 5 character area-code for effort location
-          type: string
-        hms_area_code:
-          description: character hms area code
-          type: string
-        catch_source:
-          description: source of catch. Defaults to Standard (S) for wild-caught catch
-          type: string
-        temp_unit:
-          description: unit of temperature used
-          type: string
-        gear_quantity:
-          description: Numerical gear quantity of gear reflected in gear code
-          type: string
-        in_state:
-          description: 2 character state abreviations
-          type: string
-        total_gear_in_water:
-          type: string
-        fishing_hours:
-          description: Amount of fishing hours
-          type: string
-        hours_days_flag:
-          type: string
-        hms_fins_attached:
-          description: is HMS fins attached
-          type: string
-        hms_explanation:
-          description: hms explanation
-          type: string
-      example:
-        species_itis: 1245
-        disposition_code: '001'
-        gear_code: '500'
-        grade_code: '02'
-        unit_measure: CN
-        reported_quantity: '2500'
-        price: '.65'
-        market_code: UN
-        area_fished: '514'
-        sub_area_fished: '0057'
-        local_area_code: CCB42
-        hms_area_code: BF56B
-        supplier_landing_id: ZCB41-888448-HSHSh-39LksksL
-        catch_source: A
-        temp_unit: F
-        gear_quantity: '1'
-        in_state: MA
-        total_gear_in_water: '1'
-        fishing_hours: '3'
-        hours_days_flag: H
-        hms_fins_attached: U
-        hms_explanation": we're not sure what happened to fins
     species_response:
       title: SPECIES
       description: ''
@@ -4499,6 +4274,238 @@ components:
             dealer_rpt_flag: 'Y'
         status: OK
         description: 2 Species(s) Returned
+    landing:
+      title: Root Type for landing
+      description: ''
+      required:
+        - disposition_code
+        - market_code
+        - reported_quantity
+        - species_itis
+        - unit_measure
+      type: object
+      properties:
+        supplier_landing_id:
+          description: unique identifier for landing supplied by sender.
+          type: string
+        species_itis:
+          description: ITIS code of the fish caught
+          type: string
+        disposition_code:
+          description: the final disposition of the catch made
+          type: string
+        gear_code:
+          description: gear used to catch the landing
+          type: string
+        grade_code:
+          description: Grade of catch
+          type: string
+        unit_measure:
+          description: Code for unit of measure used to reference the reported_quantity field
+          type: string
+        reported_quantity:
+          description: numeric quantity of fish caught. Always used in conjunction with unit_of_measure field.
+          type: string
+        price:
+          description: US Dollar price of landing per specified unit
+          type: string
+        market_code:
+          description: Market code of catch
+          type: string
+        area_fished:
+          description: 3 character area-code for effort location
+          type: string
+        sub_area_fished:
+          description: 4 character area-code for effort location
+          type: string
+        local_area_code:
+          description: 5 character area-code for effort location
+          type: string
+        hms_area_code:
+          description: character hms area code
+          type: string
+        catch_source:
+          description: source of catch. Defaults to Standard (S) for wild-caught catch
+          type: string
+        temp_unit:
+          description: unit of temperature used
+          type: string
+        gear_quantity:
+          description: Numerical gear quantity of gear reflected in gear code
+          type: string
+        in_state:
+          description: 2 character state abreviations
+          type: string
+        total_gear_in_water:
+          type: string
+        fishing_hours:
+          description: Amount of fishing hours
+          type: string
+        hours_days_flag:
+          type: string
+      example:
+        species_itis: 1245
+        disposition_code: '001'
+        gear_code: '500'
+        grade_code: '02'
+        unit_measure: CN
+        reported_quantity: '2500'
+        price: '.65'
+        market_code: UN
+        area_fished: '514'
+        sub_area_fished: '0057'
+        local_area_code: CCB42
+        hms_area_code: BF56B
+        supplier_landing_id: ZCB41-888448-HSHSh-39LksksL
+        catch_source: A
+        temp_unit: F
+        gear_quantity: '1'
+        in_state: MA
+        total_gear_in_water: '1'
+        fishing_hours: '3'
+        hours_days_flag: H
+        landing_additional_attributes:
+          - code: '5505'
+            value: 90
+          - code: '5501'
+            value: '514'
+          - code: '5502'
+            value: '0000'
+    dealer_report:
+      title: Root Type for dealer_report
+      description: ''
+      required:
+        - state_reg_nbr
+        - coast_guard_nbr
+        - landings
+        - date_of_pur
+        - cf_partner_id
+        - cf_license_nbr
+        - landing_date
+        - port
+        - supplier_dr_id
+      type: object
+      properties:
+        state_reg_nbr:
+          description: State Registration number of vessel. If no vessel used, provide 'FROM_SHORE'. Required to provide either coast_guard_nbr or state_reg_nbr.
+          type: string
+        coast_guard_nbr:
+          description: coast guard number of a vessel. If no vessel used, provide 'FROM_SHORE'. Required to provide either coast_guard_nbr or state_reg_nbr.
+          type: string
+        landing_date:
+          format: date
+          description: Landing Date of report. Format MM/DD/YYYY
+          type: string
+        time_landed:
+          type: string
+        date_of_pur:
+          format: date
+          description: Purchase date. Format MM/DD/YYYY
+          type: string
+        dea_license_nbr:
+          description: Permit/License Number of Dealer in use
+          type: string
+        dea_partner_id:
+          description: 4 character identifier of issuing agency of dealer permit in use
+          type: string
+        supplier_dr_id:
+          description: unique report id given by the caller. Only used to communicate errors and updates.
+          type: string
+        cf_license_nbr:
+          description: Permit/License Number of fisherman purchased from.
+          type: string
+        cf_partner_id:
+          description: 4 character identifier of issuing agency of fisherman permit in use
+          type: string
+        vtr_number:
+          description: vessel tracking report number when a NMFS-NE registed vessel is in use.
+          type: string
+        submit_method:
+          type: string
+        port:
+          description: Landing Port of Vessel
+          type: string
+        trip_start_date:
+          description: Calendar date of beginning of fishing trip. Format MM/DD/YYYY
+          type: string
+        trip_start_time:
+          description: time taken of fishing trip. Format HHMM
+          type: string
+        applicationversion:
+          description: application version
+          type: string
+        shark_fishery:
+          description: is this a shark fishery?
+          type: string
+        observer_log_id:
+          description: observed log id
+          type: string
+        vtr_explanation:
+          description: explanation of the vtr
+          type: string
+        landings:
+          description: Collection of landings in this dealer report.
+          type: array
+          items:
+            $ref: '#/components/schemas/landing'
+      example:
+        report_update: 'Y'
+        accsp_report_id: '3145324'
+        coast_guard_nbr: ''
+        state_reg_nbr: VA12345
+        landing_date: 09/15/2018
+        time_landed: '1618'
+        date_of_pur: 09/15/2018
+        dea_license_nbr: '1234'
+        dea_partner_id: '0016'
+        supplier_dr_id: 1234-2K1-U-54321
+        cf_license_nbr: '2468'
+        cf_partner_id: '0003'
+        vtr_number: '23452120091826'
+        submit_method: D
+        port: '240513'
+        trip_start_date: 01/31/2017
+        trip_start_time: '2218'
+        applicationversion: 1.0.0
+        shark_fishery: 'Y'
+        observer_log_id: bat654
+        vtr_explanation: vtr, what vtr update?
+        explanation_late: why was report submitted late?
+        explanation_modified: why was this report modified?
+        date_submitted: 12/01/2024
+        platform: PCTT
+        user_submission_handle: any_file_name_123.txt
+        report_additional_attributes:
+          - code: '5020'
+            value: '31028926021006'
+        landings:
+          - supplier_landing_id: '0123456789_456789_123456:0'
+            species_itis: 1245
+            disposition_code: '012'
+            grade_code: '01'
+            unit_measure: LB
+            reported_quantity: '430'
+            price: '.41'
+            market_code: UN
+            area_fished: '514'
+            sub_area_fished: '0057'
+            local_area_code: CCB42
+            hms_area_code: BF56B
+            catch_source: S
+            temp_unit: F
+            gear_code: '620'
+            gear_quantity: '1'
+            in_state: MA
+            total_gear_in_water: '1'
+            fishing_hours: '3'
+            hours_days_flag: H
+            landing_additional_attributes:
+              - code: '5505'
+                value: 90
+              - code: '5501'
+                value: '514'
+              - code: '5502'
+                value: '0000'
   securitySchemes:
     Confidential-API:
       scheme: basic

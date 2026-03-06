@@ -107,6 +107,9 @@ example:
   date_submitted: 12/01/2024
   platform: PCTT
   user_submission_handle: any_file_name_123.txt
+  report_additional_attributes:
+    - code: '5020'
+      value: '31028926021006'
   landings:
     - supplier_landing_id: '0123456789_456789_123456:0'
       species_itis: 1245
@@ -128,5 +131,10 @@ example:
       total_gear_in_water: '1'
       fishing_hours: '3'
       hours_days_flag: H
-      hms_fins_attached: 'N'
-      hms_explanation: fins...did anyone see the fins?
+      landing_additional_attributes:
+        - code: '5505'
+          value: 90
+        - code: '5501'
+          value: '514'
+        - code: '5502'
+          value: '0000'

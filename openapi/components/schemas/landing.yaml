@@ -68,12 +68,6 @@ properties:
     type: string
   hours_days_flag:
     type: string
-  hms_fins_attached:
-    description: is HMS fins attached
-    type: string
-  hms_explanation:
-    description: hms explanation
-    type: string
 example:
   species_itis: 1245
   disposition_code: '001'
@@ -95,5 +89,10 @@ example:
   total_gear_in_water: '1'
   fishing_hours: '3'
   hours_days_flag: H
-  hms_fins_attached: U
-  hms_explanation": we're not sure what happened to fins
+  landing_additional_attributes:
+    - code: '5505'
+      value: 90
+    - code: '5501'
+      value: '514'
+    - code: '5502'
+      value: '0000'
