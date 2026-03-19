@@ -4480,7 +4480,7 @@ components:
             value: '31028926021006'
         landings:
           - supplier_landing_id: '0123456789_456789_123456:0'
-            species_itis: 1245
+            species_itis: '1245'
             disposition_code: '012'
             grade_code: '01'
             unit_measure: LB
@@ -4501,7 +4501,7 @@ components:
             hours_days_flag: H
             landing_additional_attributes:
               - code: '5505'
-                value: 90
+                value: '90'
               - code: '5501'
                 value: '514'
               - code: '5502'
