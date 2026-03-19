@@ -91,7 +91,7 @@ example:
   hours_days_flag: H
   landing_additional_attributes:
     - code: '5505'
-      value: 90
+      value: '90'
     - code: '5501'
       value: '514'
     - code: '5502'

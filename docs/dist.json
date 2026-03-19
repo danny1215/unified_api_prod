@@ -2768,6 +2768,13 @@
             "description": "explanation of the vtr",
             "type": "string"
           },
+           "report_additional_attributes": {
+            "description": "Collection of Report additional attribute",
+            "type": "array",
+            "items": {
+                "$ref": "#/components/schemas/report_additional_attributes"
+            }
+          },
           "landings": {
             "description": "Collection of landings in this dealer report.",
             "type": "array",
