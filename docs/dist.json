@@ -5843,7 +5843,7 @@
         }
       },
       "report_processed_response": {
-        "title": "report_PROCESSED",
+        "title": "REPORT_PROCESSED",
         "description": "",
         "type": "object",
         "properties": {
