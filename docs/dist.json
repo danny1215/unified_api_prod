@@ -762,7 +762,7 @@
           }
         ],
         "summary": "lookup_list",
-        "description": "fetch a set of rows for a specified lookup table.\n\nAll lists accept the p_partner parameter and are partner specific with the exception of VESSELS, PORTS, USER_NOTIFICATIONS, VMS_LANDING_LOCATIONS, TRIP_PROCESSED, HMS_TARGET_SPECIES and HMS_GEARS,PARTNER_MANAGED_FOOTER.\n\n All vessels returned are federally permitted vessels. "
+        "description": "fetch a set of rows for a specified lookup table.\n\nAll lists accept the p_partner parameter and are partner specific with the exception of VESSELS, PORTS, USER_NOTIFICATIONS, VMS_LANDING_LOCATIONS, REPORT_PROCESSED, TRIP_PROCESSED, HMS_TARGET_SPECIES and HMS_GEARS,PARTNER_MANAGED_FOOTER.\n\n All vessels returned are federally permitted vessels. "
       }
     }
   },
@@ -3782,6 +3782,7 @@
               "VMS_LANDING_LOCATIONS",
               "GARFO_ACCSP_GEAR_MAPPING",
               "TRIP_PROCESSED",
+              "REPORT_PROCESSED",
               "HMS_TARGET_SPECIES"
             ],
             "type": "string"
@@ -5841,6 +5842,66 @@
           "description": "processed status of trip returned."
         }
       },
+      "report_processed_response": {
+        "title": "report_PROCESSED",
+        "description": "",
+        "type": "object",
+        "properties": {
+          "row": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "event_id": {
+                  "description": "the last event_id assosiated with report_processed.",
+                  "type": "string"
+                },
+                "accsp_dealer_report_id": {
+                  "description": "Associated accsp dealer report id that was given  if report is processed.",
+                  "type": "string"
+                },
+                "processed": {
+                  "description": "report is processed or not on accsp database.",
+                  "type": "string"
+                },
+								 "platform": {
+                  "description": "a platform a report is submitted (APEX,MOBILE).",
+                  "type": "string"
+                },
+								 "processed_date": {
+                  "description": "a processed date a report is submitted.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "status": {
+            "description": "status of the request",
+            "enum": [
+              "OK",
+              "FAIL"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "human readable description of the status of request",
+            "type": "string"
+          }
+        },
+        "example": {
+          "row": [
+           	{
+							"event_id": 123456,
+							"accsp_dealer_report_id": 123568,
+							"processed": "Y",
+							"platform": "APEX",
+							"processed_date": "2026-09-15T10:22:20"
+						}
+          ],
+          "status": "OK",
+          "description": "processed status of report returned."
+        }
+      },
       "HMS_TARGET_SPECIES_response": {
         "title": "HMS_TARGET_SPECIES",
         "description": "",
@@ -6134,6 +6195,9 @@
           },
           {
             "$ref": "#/components/schemas/trip_processed_response"
+          },
+           {
+            "$ref": "#/components/schemas/report_processed_response"
           },
           {
             "$ref": "#/components/schemas/HMS_TARGET_SPECIES_response"
